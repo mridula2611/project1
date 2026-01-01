@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Home</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .box {
+            width: 200px;
+            padding: 20px;
+            margin: 15px;
+            display: inline-block;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .light { background-color: orange; }
+        .fan { background-color: dodgerblue; }
+        .temp { background-color: crimson; }
+        .door { background-color: seagreen; }
+
+        button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🏠 Smart Home Dashboard</h1>
+
+<div class="box light">
+    <h3>💡 Light</h3>
+    <p id="light">OFF</p>
+    <button onclick="toggleLight()">ON / OFF</button>
+</div>
+
+<div class="box fan">
+    <h3>🌀 Fan</h3>
+    <p id="fan">OFF</p>
+    <button onclick="toggleFan()">ON / OFF</button>
+</div>
+
+<div class="box temp">
+    <h3>🌡 Temperature</h3>
+    <p id="temp">25 °C</p>
+    <button onclick="increase()">+</button>
+    <button onclick="decrease()">-</button>
+</div>
+
+<div class="box door">
+    <h3>🚪 Door</h3>
+    <p id="door">LOCKED</p>
+    <button onclick="toggleDoor()">LOCK / UNLOCK</button>
+</div>
+
+<script>
+    let light = false;
+    let fan = false;
+    let temp = 25;
+    let door = true;
+
+    function toggleLight() {
+        light = !light;
+        document.getElementById("light").innerHTML = light ? "ON" : "OFF";
+    }
+
+    function toggleFan() {
+        fan = !fan;
+        document.getElementById("fan").innerHTML = fan ? "ON" : "OFF";
+    }
+
+    function increase() {
+        temp++;
+        document.getElementById("temp").innerHTML = temp + " °C";
+    }
+
+    function decrease() {
+        temp--;
+        document.getElementById("temp").innerHTML = temp + " °C";
+    }
+
+    function toggleDoor() {
+        door = !door;
+        document.getElementById("door").innerHTML = door ? "LOCKED" : "UNLOCKED";
+    }
+</script>
+
+</body>
+</html>
